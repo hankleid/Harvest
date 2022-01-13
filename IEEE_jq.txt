@@ -1,0 +1,18 @@
+urla="http://ieeexploreapi.ieee.org/api/v1/search/articles?apikey=u7cenag5cgc5bysdwz2sjfm5&format=json&max_records=200&start_record="
+urlb="&sort_order=asc&sort_field=article_number&start_year=2000&end_year=2000"
+
+
+# QUERIES WITH ONE PAGE
+curl ${urla}1${urlb} | jq '.articles[].abstract' >> YEAR.txt
+
+# QUERIES FOR MULTIPLE PAGES
+for ((i=1;i<=2000;i++)); do curl "${urla}$((200 * i + 1))${urlb}" | jq '.articles[].abstract' >> YEAR.txt; done
+
+PROCESS:
+{ 
+for every year from 2020 to 1950:
+   1. edit urlb with the correct start/end dates
+   2. determine query one page or multiple
+   3. collect abstracts accordingly
+}
+
