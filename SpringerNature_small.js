@@ -1,5 +1,5 @@
 //var ENDLOOP = 10000/100 // no. total articles divided by no. articles/page
-var YEAR = 1991;
+var YEAR = 1900;
 var PAGELENGTH = 100;
 var START = 1;
 
@@ -27,11 +27,11 @@ function collect_abstracts(json) {
     }
 }
 
-for (var i = 0; i < 36; i++) {
+for (var i = 0; i < 20; i++) {
     var url = "https://api.springernature.com/meta/v2/json?q="
             +"(pub:%22Nature%20Communications%22%20OR%20"
             +"pub:Nature%20OR%20"
-            +"pub:%22Nature%20Materials%22%20OR%20"
+            +"ub:%22Nature%20Materials%22%20OR%20"
             +"pub:%22Nature%20Nanotechnology%22%20OR%20"
             +"pub:%22Nature%20Photonics%22%20OR%20"
             +"pub:%22Nature%20Physicsy%22%20OR%20"
