@@ -4,7 +4,7 @@ const YEAR = 2022;
 const PERPAGE = 200;
 
 const idURL = "https://api.elsevier.com/content/search/scopus?"
-            +"query=SUBJAREA%28ENGI+OR+MATE+OR+PHYS+OR+ENER%29"
+            +"query=ISSN(0304-8853 OR 0038-1101)"
             +"&apiKey=e622388ba261e700b860d2572455d9d4"
             +"&insttoken=288208f8f5ebac7eb3cd123901463335"
             +"&view=STANDARD"
@@ -47,8 +47,8 @@ async function main() {
     const res = await axios
         .get(idURL+0)
         .catch((error) => console.error(error));
-    console.log(res.data['search-results']['opensearch:totalResults']);
-    const totalNumArticles = 400;
+    const totalNumArticles = res.data['search-results']['opensearch:totalResults'];
+    console.log(totalNumArticles);
 
     let page = 0;
     while (page*PERPAGE < totalNumArticles) { // STOP @ FINAL ARTICLE.
