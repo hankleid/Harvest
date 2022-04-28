@@ -1,6 +1,6 @@
 const axios = require('axios');
 const fs = require("fs");
-const YEAR = 2022;
+const YEAR = 2016;
 const PERPAGE = 200;
 
 const idURL = "https://api.elsevier.com/content/search/scopus?"
@@ -69,4 +69,4 @@ async function main() {
     }
 }
 
-main(idURL);
+main();
